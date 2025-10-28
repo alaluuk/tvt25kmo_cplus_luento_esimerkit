@@ -10,6 +10,7 @@ int main() {
     cout << "Anna ikasi: ";
     cin >> age;
     cout << "Terve " << name << "olet siis " << age << " vuotias" << endl;
-    cin >>age;
+    //jotta ruutu ei sulkeudu
+    system("pause");
     return 0;
 }

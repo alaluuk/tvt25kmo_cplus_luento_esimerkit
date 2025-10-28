@@ -8,7 +8,7 @@ int main()
     cout << "Anna etunimesi:" << endl;
     cin >> fname;
     cout<<"Terve "<<fname <<endl;
-    //jotta ruutu ei sulkeudu, luetaan vielä kerran
-    cin >> fname;
+    //jotta ruutu ei sulkeudu
+    system("pause");
     return 0;
 }

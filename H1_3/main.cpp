@@ -14,6 +14,7 @@ int main()
     else {
         cout<<"Luku "<<num1<<" on pariton"<<endl;
     }
-    //cin>>num1;
+    //jotta ruutu ei sulkeudu
+    system("pause");
     return 0;
 }
