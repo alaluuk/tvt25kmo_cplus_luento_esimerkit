@@ -7,6 +7,6 @@ int main() {
     cout << "Anna kokonaisluku" << endl;
     cin >> luku;
     cout << "Luku tuplattuna=" << tuplaa(luku) << endl;
-    //system("pause");
+    system("pause");
     return 0;
 }
