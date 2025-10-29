@@ -1,5 +1,8 @@
 #include <iostream>
-
+/*
+ * Esimerkkiin lisättiin try catch -rakenne vaikkei
+ * sitä ollut tehtävässä pyydetty
+ */
 using namespace std;
 
 int tuplaa(int);
