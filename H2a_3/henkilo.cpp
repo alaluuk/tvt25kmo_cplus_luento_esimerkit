@@ -22,7 +22,7 @@ void Henkilo::setName(const string &newName)
 
 void Henkilo::printData()
 {
-    cout<<"nimi="<<name<<", ika="<<age<<endl;
+    cout<<"nimi="<<name<<", ikä="<<age<<endl;
 }
 
 Henkilo::Henkilo(string name, int a) {
