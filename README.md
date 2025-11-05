@@ -14,4 +14,4 @@ Tuo ongelma on Qt Creatorin versiossa 17.0.0, mutta se on korjattu ainakin versi
 
 ## Lisätehtävä1 luokkakaavio
 
-<img src="Car.png>
+<img src="Car.png">
