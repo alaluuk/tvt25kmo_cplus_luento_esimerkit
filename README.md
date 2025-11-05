@@ -7,3 +7,7 @@ Laitoin jokaisen sovelluksen loppuun alla olevan rivin tuon estämiseksi
 <pre>
 system("pause");
 </pre>
+
+## Ratkaisu
+
+Tuo ongelma on Qt Creatorin versiossa 17.0.0, mutta se on korjattu ainakin versioon 18.0.0
