@@ -20,3 +20,35 @@ Kansiossa Lisatehtava_1 oleva sovellus sisältää ratkaisut tehtäviin 1-3, jot
 
 "Kuva 1: Car luokan luokkakaavio."
 
+### Selitykset `getMake` ja `setMake` -funktioiden `const`-sanoille
+
+#### `string getMake() const;`
+
+- `const` funktion **lopussa** tarkoittaa, että tämä jäsenfunktio **ei muuta olion tilaa**.  
+- Toisin sanoen funktio **ei saa muuttaa luokan jäseniä** (eli muuttujia kuten `make`, `model` tai `year`).  
+
+---
+
+#### `void setMake(const string &newMake);`
+
+- Tässä `const` liittyy **parametriin** `newMake`.  
+- Se tarkoittaa, että funktion sisällä **parametrin arvoa ei voi muuttaa**.  
+- Koska parametri välitetään viitteenä (`&`) tehokkuuden vuoksi, `const` suojaa alkuperäistä arvoa muutoksilta.
+
+**Esimerkki:**
+```cpp
+void Auto::setMake(const string &newMake) {
+    // newMake = "Honda"; //  Ei sallittu, koska newMake on const
+    make = newMake;       // Sallittu – arvo vain kopioidaan
+}
+```
+
+---
+
+#### Yhteenveto
+
+| Funktio | `const`-sanan merkitys |
+|----------|------------------------|
+| `string getMake() const;` | Funktio ei muuta olion jäseniä. |
+| `void setMake(const string &newMake);` | Parametria `newMake` ei voi muuttaa funktion sisällä. |
+
