@@ -12,6 +12,11 @@ system("pause");
 
 Tuo ongelma on Qt Creatorin versiossa 17.0.0, mutta se on korjattu ainakin versioon 18.0.0
 
-## Lisätehtävä1 luokkakaavio
+## Lisätehtävä1 (1-3)
 
-<img src="Car.png">
+Kansiossa Lisatehtava_1 oleva sovellus sisältää ratkaisut tehtäviin 1-3, jotka ovat sivulla [https://peatutor.com/cplus/luento_esimerkit/extras.php](https://peatutor.com/cplus/luento_esimerkit/extras.php)
+
+![Luokan Car luokkakaavio](Car.png)
+
+"Kuva 1: Car luokan luokkakaavio."
+
