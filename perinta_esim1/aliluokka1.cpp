@@ -2,7 +2,9 @@
 #include<iostream>
 using namespace std;
 
-Aliluokka1::Aliluokka1() {}
+Aliluokka1::Aliluokka1() {
+    cout<<"Aliluokan olio luotiin"<<endl;
+}
 
 void Aliluokka1::asetaNumerot(int pub, int pro, int pri)
 {
