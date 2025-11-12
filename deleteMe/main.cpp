@@ -1,5 +1,7 @@
 #include "student.h"
 #include "tuote.h"
+#include "pesukone.h"
+#include "televisio.h"
 
 #include <iostream>
 #include <vector>
@@ -9,35 +11,27 @@ using namespace std;
 
 int main()
 {
-    int kallein;
-    vector<Tuote> tuoteLista;
-    tuoteLista.emplace_back(25,"t1");
-    tuoteLista.emplace_back(22,"t2");
-    tuoteLista.emplace_back(32,"t3");
-    tuoteLista.emplace_back(19,"t4");
+    // vector<unique_ptr<Tuote>> tuoteLista;
+    // tuoteLista.emplace_back(make_unique<Tuote>(500, "Sohva"));
+    // tuoteLista.emplace_back(make_unique<Televisio>(600, "TV", 55.5));
+    // tuoteLista.emplace_back(make_unique<Pesukone>(1300, "Pesukarhu", 1600, 9));
 
-    // kallein=tuoteLista[0].getHinta();
-    // int x=1;
-    // for(const Tuote &nyt: tuoteLista ){
-    //     if(nyt.getHinta() > kallein){
-    //         kallein=nyt.getHinta();
-    //         x++;
-    //     }
+    // for (auto& alkio : tuoteLista) {
+    //     alkio->tulostaTiedot();
     // }
-    //cout<<"kallein="<<tuoteLista[x].getNimi()<<" hinta= "<<tuoteLista[x].getHinta()<<endl;
 
-    int kalleimman_indeksi=0;
-    for(int x=1; x<=3; x++ ){
-        if(tuoteLista[x].getHinta() > tuoteLista[kalleimman_indeksi].getHinta()){
-            kalleimman_indeksi=x;
-        }
+    Tuote objTuote(500, "Sohva");
+    Televisio objTelevisio(600, "TV", 55.5);
+    Pesukone objPesukone(1300, "Pesukarhu", 1600, 9);
+
+    vector<Tuote*> tuoteLista;
+    tuoteLista.push_back(&objTuote);
+    tuoteLista.push_back(&objTelevisio);
+    tuoteLista.push_back(&objPesukone);
+
+    for (auto alkio : tuoteLista) {
+        alkio->tulostaTiedot();
     }
-    cout<<"kallein="<<tuoteLista[kalleimman_indeksi].getNimi()<<" hinta= "<<tuoteLista[kalleimman_indeksi].getHinta()<<endl;
-
-
-
-
-
 
     return 0;
 }

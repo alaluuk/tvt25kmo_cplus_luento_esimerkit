@@ -9,7 +9,7 @@ int main()
 {
     vector<Tuote> tuoteLista;
 
-    tuoteLista.emplace_back("Lapio",5000);
+    tuoteLista.emplace_back("Lapio",50);
     tuoteLista.emplace_back("Kahvikuppi",12);
     tuoteLista.emplace_back("TV",500);
     tuoteLista.emplace_back("Sohva",1500);
