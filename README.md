@@ -52,3 +52,17 @@ void Auto::setMake(const string &newMake) {
 | `string getMake() const;` | Funktio ei muuta olion jäseniä. |
 | `void setMake(const string &newMake);` | Parametria `newMake` ei voi muuttaa funktion sisällä. |
 
+## Perintä
+
+### perinta_esim1
+
+Tehtävän tarkoitus on esittää, kuinka suojaustasot (private, protected, public) vaikuttavat perivän luokan toimintaan.
+
+### perinta_esim2
+
+Tehtävän tarkoitus on esittää seuraavat asiat:
+- perinnän hyöty: kantaluokan ominaisuuksien hyödyntäminen useammassa aliluokassa
+- kantaluokan konstruktorin hyödyntäminen aliluokassa
+- polymorfismi eli "eri oliot voivat vastata samaan viestiin (eli metodikutsuun) omalla tavallaan" (tulostaTiedot()-metodi tässä)
+- metodin ylikirjoittaminen (sanat virtual ja override)
+- auto sanan hyödyntäminen vektorissa, jossa eri luokkien olioita

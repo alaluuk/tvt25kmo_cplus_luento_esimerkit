@@ -34,6 +34,7 @@ int main()
     for(auto tuote: tuoteLista){
         tuote->tulostaTiedot();
     }
+    //auto sanan ansiosta kääntäjä tunnistaa olion luokan
 
     return 0;
 }
