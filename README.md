@@ -66,3 +66,7 @@ Tehtävän tarkoitus on esittää seuraavat asiat:
 - polymorfismi eli "eri oliot voivat vastata samaan viestiin (eli metodikutsuun) omalla tavallaan" (tulostaTiedot()-metodi tässä)
 - metodin ylikirjoittaminen (sanat virtual ja override)
 - auto sanan hyödyntäminen vektorissa, jossa eri luokkien olioita
+
+## Muistivuoto
+
+Tehtävässä muistivuoto on tahallaan aiheutettu muistivuoto, jota tutkitaan **Heob**-työkalun avulla.
