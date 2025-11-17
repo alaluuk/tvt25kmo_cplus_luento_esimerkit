@@ -8,6 +8,6 @@ Pesukone::Pesukone(string n, double h, int l, int m): Tuote(n,h) {
 void Pesukone::tulostaTiedot()
 {
     cout<<" Tuote="<<this->getNimi()<<", hinta="<<this->getHinta();
-    cout<<", linkousnopeus="<<linkousNopeus<<" ,max pyykin paino"<<maxPyykki<<endl;
+    cout<<", linkousnopeus="<<linkousNopeus<<" ,max pyykin paino="<<maxPyykki<<endl;
 
 }
