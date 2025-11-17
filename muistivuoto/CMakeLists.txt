@@ -6,7 +6,8 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_executable(muistivuoto main.cpp
-    dog.h dog.cpp)
+    dog.h dog.cpp
+)
 
 include(GNUInstallDirs)
 install(TARGETS muistivuoto
