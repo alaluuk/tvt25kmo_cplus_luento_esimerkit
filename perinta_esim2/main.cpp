@@ -16,6 +16,8 @@ int main()
     objTelevisio.tulostaTiedot();
     objPesukone.tulostaTiedot();
 
+    // Lista sisältää vain Televisio-luokan olioita
+    // Oliot voidaan luoda suoraan listaan emplace_back():llä
     vector<Televisio> tvLista;
     tvLista.emplace_back("LG TV",999,55);
     tvLista.emplace_back("Samsug TV",800,50);
@@ -26,18 +28,22 @@ int main()
         tv.tulostaTiedot();
     }
 
+    // Lista sisältää eri luokkien olioita (polymorfismi)
+    // Listaan tallennetaan osoittimet olioihin
+    // Jos listaan tallennettaisiin oliot suoraan, tapahtuisi object slicing
     vector<Tuote*> tuoteLista;
     tuoteLista.push_back(&objTuote);
     tuoteLista.push_back(&objPesukone);
     tuoteLista.push_back(&objTelevisio);
 
     cout<<"Tuote lista:"<<endl;
+    //auto sanan ansiosta kääntäjä tunnistaa olion luokan
     for(auto tuote: tuoteLista){
         tuote->tulostaTiedot();
     }
-    //auto sanan ansiosta kääntäjä tunnistaa olion luokan
 
-    //smart pointterin käyttö
+    // Vektori sisältää unique_ptr:iä polymorfismin mahdollistamiseksi
+    // Ilman pointteria tapahtuisi object slicing (aliluokan tiedot katoaisivat)
     vector<unique_ptr<Tuote>> tuoteVektori;
     tuoteVektori.emplace_back(make_unique<Tuote>("Tuoli",99));
     tuoteVektori.emplace_back(make_unique<Televisio>("Samsung",800,55));
