@@ -31,12 +31,12 @@ int main()
     // Lista sisältää eri luokkien olioita (polymorfismi)
     // Listaan tallennetaan osoittimet olioihin
     // Jos listaan tallennettaisiin oliot suoraan, tapahtuisi object slicing
+    cout<<"Tuotelista"<<endl;
     vector<Tuote*> tuoteLista;
     tuoteLista.push_back(&objTuote);
     tuoteLista.push_back(&objPesukone);
     tuoteLista.push_back(&objTelevisio);
 
-    cout<<"Tuote lista:"<<endl;
     //auto sanan ansiosta kääntäjä tunnistaa olion luokan
     for(auto tuote: tuoteLista){
         tuote->tulostaTiedot();
