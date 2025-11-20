@@ -54,5 +54,19 @@ int main()
         olio->tulostaTiedot();
     }
 
+    cout<<"Millainen for-loop\n";
+    //Mietitään millaisia alkioita kukin vektori sisältää
+
+    //tvLista sisältää olioita
+    Televisio test1=tvLista[0];
+    test1.tulostaTiedot();
+    //tuoteLista sisältää olioiden osoitteita
+    auto test2 = tuoteLista[0];
+    test2->tulostaTiedot();
+    //tuoteVektori sisältää pointtereita
+    //auto test3 = tuoteVektori[0]; <-ei mahdollista, koska unique_ptr:ää ei voi kopioida,
+    //vain siirtää. Siksi käytetään viittausta auto& test3 = tuoteVektori[0];
+    auto& test3 =  tuoteVektori[0];
+    test3->tulostaTiedot();
     return 0;
 }
