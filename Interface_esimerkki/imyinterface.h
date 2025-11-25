@@ -5,7 +5,7 @@ class IMyInterface
 {
 public:
     IMyInterface();
-    void virtual Method1(int )=0;
+    virtual void Method1(int )=0;
     virtual int Method2(int )=0;
 };
 
