@@ -74,7 +74,7 @@ Tehtävässä muistivuoto on tahallaan aiheutettu muistivuoto, jota tutkitaan **
 
 ## Qt Console sovellus
 
-Tutustutaan Qt Frameworkin ominaisuuksiin kuten QOBJECT-luokka ja QOBJECT-makro ja signal-slot systeemi.
+Tutustutaan Qt Frameworkin ominaisuuksiin kuten QObject-luokka ja Q_OBJECT-makro ja signal-slot systeemi.
 Rakennetaan sovllus, joka hakee HTTP-protollan avulla dataa valmiista API:sta https://jsonplaceholder.typicode.com/todos
 
 Tuo API palauttaa dataa JSON-muodossa eli tällaista:
