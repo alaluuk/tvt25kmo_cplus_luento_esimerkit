@@ -75,32 +75,42 @@ Tehtävässä muistivuoto on tahallaan aiheutettu muistivuoto, jota tutkitaan **
 ## Qt Console sovellus
 
 Tutustutaan Qt Frameworkin ominaisuuksiin kuten QObject-luokka ja Q_OBJECT-makro ja signal-slot systeemi.
-Rakennetaan sovllus, joka hakee HTTP-protollan avulla dataa valmiista API:sta https://peatutor.com/json_example/
+Rakennetaan sovellus, joka hakee HTTP-protollan avulla dataa valmiista API:sta https://peatutor.com/json_example/index.php
 
-Tuo API palauttaa dataa JSON-muodossa eli tällaista:
+Tuo API palauttaa dataa JSON-muodossa eli tällaisen JSON arrayn:
 <pre>
 [
+    {
+    id: 1,
+    firstname: "Matti",
+    lastname: "Meikäläinen"
+    },
+    {
+    id: 2,
+    firstname: "Maija",
+    lastname: "Virtanen"
+    },
+    {
+    id: 3,
+    firstname: "Pekka",
+    lastname: "Pouta"
+    },
+    {
+    id: 4,
+    firstname: "Liisa",
+    lastname: "Laine"
+    }
+]
+</pre>
+Ja, kun halutaan yksittäinen JSON objekti se saadaan kirjoittamalla edellisen urlin perään indeksi eli esim. https://peatutor.com/json_example/index.php/1
+
+Saadaan seuraava JSON objekti 
+<pre>
 {
 id: 1,
 firstname: "Matti",
 lastname: "Meikäläinen"
-},
-{
-id: 2,
-firstname: "Maija",
-lastname: "Virtanen"
-},
-{
-id: 3,
-firstname: "Pekka",
-lastname: "Pouta"
-},
-{
-id: 4,
-firstname: "Liisa",
-lastname: "Laine"
 }
-]
 </pre>
 
 Käytetään lähteenä sivua https://peatutor.com/qt/
@@ -110,3 +120,25 @@ Käytetään lähteenä sivua https://peatutor.com/qt/
 On Qt Frameworkkiin sisältyvä systeemi, jolla voidaan korvata **callback**-funktioiden käyttö. Tässä sitä tarvitaan, koska http-request toimii asynkronisesti. Se tarkoittaa, että kun lähetämme http-requestin, niin sovellus "ei pysähdy odottamaan vastausta". Eli tuon kutsun perään emme voi kirjoittaa koodia, joka tulostaa saamamme vastauksen.
 
 Signal-slot toimii edellä siten, että kun palvemimelta on saatu vastaus http-requestiin, niin tuo request metodi "nostaa" signaalin nimeltään **finished**. Kytkemme tuon signaalin kirjoittamaamme slottiin. Tuo slot on ihan normaali metodi. Ja tuossa slotissa tulostamme saamamme vastauksen eli http-responsen lähettämän datan. Ja siis kun tuo signaali nousee, niin tuo slot metodi suoritetaan.
+
+### Qt:n event loop
+
+Kun luodaan Qt konsolisovellus, sen main.cpp on seuraavanlainen:
+<pre>
+#include <QCoreApplication>
+
+int main(int argc, char *argv[])
+{
+    QCoreApplication a(argc, argv);
+    return a.exec();
+}
+</pre>
+
+Lause a.exec(); käynnistää tapahtumasilmukan (event loop), joka
+  - Käsittelee Qt-tapahtumia (signaalit, ajastimet, verkkoliikenne, jne.)
+  - Estää ohjelman suorituksen jatkumisen - funktio ei palaa ennen kuin a.quit() tai a.exit() kutsutaan
+  - Palauttaa poistumiskoodin (exit code) kun ohjelma suljetaan
+
+  Ilman a.exec() kutsua, ohjelma suorittaisi main()-funktion loppuun asti ja päättyisi välittömästi.
+  Tapahtumasilmukka pitää ohjelman käynnissä ja mahdollistaa asynkronisten operaatioiden (kuten signaalien ja
+  slottien) toiminnan.
