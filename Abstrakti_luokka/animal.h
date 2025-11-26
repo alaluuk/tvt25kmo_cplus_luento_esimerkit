@@ -11,8 +11,8 @@ public:
     string getColor() const;
     void setColor(const string &newColor);
     void virtual sound()=0;
-    //~Animal();
-    virtual ~Animal();
+    ~Animal();
+    //virtual ~Animal();
 };
 
 #endif // ANIMAL_H

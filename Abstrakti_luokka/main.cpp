@@ -24,7 +24,8 @@ int main()
     //tässä tulee ongelma, jos Animal luokan tuhoaja
     //ei ole virtuaalinen
     cout<<"Tuhotaanko varmasti cat olio?"<<endl;
-    Animal *objCat2=new Cat();
+    //Animal *objCat2=new Cat();
+    Cat *objCat2=new Cat();
     objCat2->sound();
     delete objCat2;
     objCat2=nullptr;
