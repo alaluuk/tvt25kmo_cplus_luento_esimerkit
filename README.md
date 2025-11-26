@@ -71,3 +71,39 @@ Tehtävän tarkoitus on esittää seuraavat asiat:
 ## Muistivuoto
 
 Tehtävässä muistivuoto on tahallaan aiheutettu muistivuoto, jota tutkitaan **Heob**-työkalun avulla.
+
+## Qt Console sovellus
+
+Tutustutaan Qt Frameworkin ominaisuuksiin kuten QOBJECT-luokka ja QOBJECT-makro ja signal-slot systeemi.
+Rakennetaan sovllus, joka hakee HTTP-protollan avulla dataa valmiista API:sta https://jsonplaceholder.typicode.com/todos
+
+Tuo API palauttaa dataa JSON-muodossa eli tällaista:
+<pre>
+[
+{
+userId: 1,
+id: 1,
+title: "delectus aut autem",
+completed: false
+},
+{
+userId: 1,
+id: 2,
+title: "quis ut nam facilis et officia qui",
+completed: false
+},
+{
+userId: 1,
+id: 3,
+title: "fugiat veniam minus",
+completed: false
+},
+</pre>
+
+Käytetään lähteenä sivua https://peatutor.com/qt/
+
+### Signal-Slot
+
+On Qt Frameworkkiin sisältyvä systeemi, jolla voidaan korvata **callback**-funktioiden käyttö. Tässä sitä tarvitaan, koska http-request toimii asynkronisesti. Se tarkoittaa, että kun lähetämme http-requestin, niin sovellus "ei pysähdy odottamaan vastausta". Eli tuon kutsun perään emme voi kirjoittaa koodia, joka tulostaa saamamme vastauksen.
+
+Signal-slot toimii edellä siten, että kun palvemimelta on saatu vastaus http-requestiin, niin tuo request metodi "nostaa" signaalin nimeltään **finished**. Kytkemme tuon signaalin kirjoittamaamme slottiin. Tuo slot on ihan normaali metodi. Ja tuossa slotissa tulostamme saamamme vastauksen eli http-responsen lähettämän datan. Ja siis kun tuo signaali nousee, niin tuo slot metodi suoritetaan.
