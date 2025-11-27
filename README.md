@@ -161,7 +161,7 @@ Jos connect funktiossa käytetäänkin replyn finished signaalia seuraavasti
 <pre>
 connect(reply, &QNetworkAccessManager::finished, this,&HttpPerson::onePersonDataSlot);
 </pre>
-Ei slotissa tarvita tuota parametria eli slot voidaan määritellä näin:
+Nyt slotissa ei tarvita tuota parametria eli slot voidaan määritellä näin:
 <pre>
 onePersonDataSlot()
 </pre>
