@@ -142,3 +142,26 @@ Lause a.exec(); käynnistää tapahtumasilmukan (event loop), joka
   Ilman a.exec() kutsua, ohjelma suorittaisi main()-funktion loppuun asti ja päättyisi välittömästi.
   Tapahtumasilmukka pitää ohjelman käynnissä ja mahdollistaa asynkronisten operaatioiden (kuten signaalien ja
   slottien) toiminnan.
+
+### finished signaali
+
+Huomasin, että tuo finished signaali löytyy sekä manager, että reply luokasta. Tuo reply:n käyttö on hieman yksinkertaisempi, joten päivitin web-sivuni ohjeen sen mukaiseksi.
+
+Tässä esimerkissä connect funktion määritys oli:
+<pre>
+connect(manager, &QNetworkAccessManager::finished, this,&HttpPerson::onePersonDataSlot);
+</pre>
+Tällöin tuon onePersonDataSlot():n on saatava argumenttina reply, joten tuo slot oli määritelty näin:
+<pre>
+onePersonDataSlot(QNetworkReply *reply)
+</pre>
+Huomaa, että connect funktiossa ei tuota argumenttia tarvitse kirjoittaa tuohon slot-metodiin, vaan se menee siihen automaattisesti.
+
+Jos connect funktiossa käytetäänkin replyn finished signaalia seuraavasti 
+<pre>
+connect(reply, &QNetworkAccessManager::finished, this,&HttpPerson::onePersonDataSlot);
+</pre>
+Ei slotissa tarvita tuota parametria eli slot voidaan määritellä näin:
+<pre>
+onePersonDataSlot()
+</pre>
