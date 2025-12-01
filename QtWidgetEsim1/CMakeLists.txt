@@ -11,7 +11,13 @@ qt_add_executable(QtWidgetEsim1
     mainwindow.cpp
     mainwindow.h
     mainwindow.ui
+    page2.h page2.cpp page2.ui
+    style.qss
+    resource.qrc
 )
+
+qt_add_resources(RESOURCES_ADDED resource.qrc)
+target_sources(QtWidgetEsim1 PRIVATE ${RESOURCES_ADDED})
 
 target_link_libraries(QtWidgetEsim1
     PRIVATE

@@ -53,9 +53,9 @@
    <widget class="QLabel" name="labelResult">
     <property name="geometry">
      <rect>
-      <x>240</x>
-      <y>260</y>
-      <width>401</width>
+      <x>480</x>
+      <y>150</y>
+      <width>301</width>
       <height>61</height>
      </rect>
     </property>
@@ -71,10 +71,10 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>120</x>
-      <y>280</y>
+      <x>340</x>
+      <y>160</y>
       <width>71</width>
-      <height>31</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="font">
@@ -89,7 +89,7 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>310</x>
+      <x>370</x>
       <y>70</y>
       <width>131</width>
       <height>71</height>
@@ -107,7 +107,7 @@
    <widget class="QLineEdit" name="textName">
     <property name="geometry">
      <rect>
-      <x>450</x>
+      <x>560</x>
       <y>90</y>
       <width>151</width>
       <height>41</height>
@@ -117,6 +117,24 @@
      <font>
       <pointsize>14</pointsize>
      </font>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnOpenPage2">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>260</y>
+      <width>151</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Avaa sivu2</string>
     </property>
    </widget>
   </widget>
