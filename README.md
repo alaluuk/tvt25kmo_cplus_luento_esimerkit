@@ -165,3 +165,37 @@ Nyt slotissa ei tarvita tuota parametria eli slot voidaan määritellä näin:
 <pre>
 onePersonDataSlot()
 </pre>
+
+## QtWidgetEsim1
+
+### Tiedon välitys ikkunasta(Widgetistä) toiseen
+
+Mainwindow:sta voidaan välittää annettu nimi Page2:een, siten että ennen Page2:n avaamista, kutsutaan Page:n setFname()-metodia.
+
+Toiseen suuntaan välittäminen tapahtuu, niin että ennen Page2:n avaamista MainWindow:ssa kytketään Page2:n nameSetted-signaali slottiin showNameFromPage2(), joka hakee Page2:ssa asetetun nimen metodilla getFname(). Kun Page2:ssa nimi asetaan, niin siellä emitoidaan signaali nameSetted.
+
+### Ui:n muotoilus qss-tiedoston avulla
+
+Tiedostossa style.qss on asetettu painikkeille ja labeleille tyylit. Lisäksi on luotu tiedosto resource.qrc, jonka sisältö on:
+<pre>
+<RCC>
+    <qresource prefix="/">
+        <file>style.qss</file>
+    </qresource>
+</RCC>
+</pre>
+Tuon tieodoston voi luoda tekstieditorilla tai Qt:n resurssieditorilla.
+
+Lisäksi CMakeLists tiedostoon on lisätty rivit:
+<pre>
+qt_add_resources(RESOURCES_ADDED resource.qrc)
+target_sources(QtWidgetEsim1 PRIVATE ${RESOURCES_ADDED})
+</pre>
+
+Ja main.cpp tiedostoon rivit:
+<pre>
+QFile file(":/style.qss");
+if (file.open(QFile::ReadOnly | QFile::Text)) {
+    a.setStyleSheet(file.readAll());
+}
+</pre>
