@@ -178,11 +178,11 @@ Toiseen suuntaan välittäminen tapahtuu, niin että ennen Page2:n avaamista Mai
 
 Tiedostossa style.qss on asetettu painikkeille ja labeleille tyylit. Lisäksi on luotu tiedosto resource.qrc, jonka sisältö on:
 <pre>
-<RCC>
-    <qresource prefix="/">
-        <file>style.qss</file>
-    </qresource>
-</RCC>
+&lt;RCC&gt;
+    &lt;qresource prefix="/"&gt;
+        &lt;file&gt;style.qss&lt;/file&gt;
+    &lt;/qresource&gt;
+&lt;/RCC&gt;
 </pre>
 Tuon tieodoston voi luoda tekstieditorilla tai Qt:n resurssieditorilla.
 
