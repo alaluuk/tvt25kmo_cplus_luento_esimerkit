@@ -4,9 +4,9 @@
 
 Uusin Qt Creator sulkee ulkoisen terminaali-ikkunan automaattisesti. Mitkään asetukset eivät tunnu tähän auttavan.
 Laitoin jokaisen sovelluksen loppuun alla olevan rivin tuon estämiseksi
-<pre>
+````
 system("pause");
-</pre>
+````
 
 ## Ratkaisu
 
@@ -78,7 +78,7 @@ Tutustutaan Qt Frameworkin ominaisuuksiin kuten QObject-luokka ja Q_OBJECT-makro
 Rakennetaan sovellus, joka hakee HTTP-protollan avulla dataa valmiista API:sta https://peatutor.com/json_example/index.php
 
 Tuo API palauttaa dataa JSON-muodossa eli tällaisen JSON arrayn:
-<pre>
+````
 [
     {
     id: 1,
@@ -101,17 +101,17 @@ Tuo API palauttaa dataa JSON-muodossa eli tällaisen JSON arrayn:
     lastname: "Laine"
     }
 ]
-</pre>
+````
 Ja, kun halutaan yksittäinen JSON objekti se saadaan kirjoittamalla edellisen urlin perään indeksi eli esim. https://peatutor.com/json_example/index.php/1
 
 Saadaan seuraava JSON objekti 
-<pre>
+````
 {
 id: 1,
 firstname: "Matti",
 lastname: "Meikäläinen"
 }
-</pre>
+````
 
 Käytetään lähteenä sivua https://peatutor.com/qt/
 
@@ -124,7 +124,7 @@ Signal-slot toimii edellä siten, että kun palvemimelta on saatu vastaus http-r
 ### Qt:n event loop
 
 Kun luodaan Qt konsolisovellus, sen main.cpp on seuraavanlainen:
-<pre>
+````
 #include <QCoreApplication>
 
 int main(int argc, char *argv[])
@@ -132,7 +132,7 @@ int main(int argc, char *argv[])
     QCoreApplication a(argc, argv);
     return a.exec();
 }
-</pre>
+````
 
 Lause a.exec(); käynnistää tapahtumasilmukan (event loop), joka
   - Käsittelee Qt-tapahtumia (signaalit, ajastimet, verkkoliikenne, jne.)
@@ -148,23 +148,23 @@ Lause a.exec(); käynnistää tapahtumasilmukan (event loop), joka
 Huomasin, että tuo finished signaali löytyy sekä manager, että reply luokasta. Tuo reply:n käyttö on hieman yksinkertaisempi, joten päivitin web-sivuni ohjeen sen mukaiseksi.
 
 Tässä esimerkissä connect funktion määritys oli:
-<pre>
+````
 connect(manager, &QNetworkAccessManager::finished, this,&HttpPerson::onePersonDataSlot);
-</pre>
+````
 Tällöin tuon onePersonDataSlot():n on saatava argumenttina reply, joten tuo slot oli määritelty näin:
-<pre>
+````
 onePersonDataSlot(QNetworkReply *reply)
-</pre>
+````
 Huomaa, että connect funktiossa ei tuota argumenttia tarvitse kirjoittaa tuohon slot-metodiin, vaan se menee siihen automaattisesti.
 
 Jos connect funktiossa käytetäänkin replyn finished signaalia seuraavasti 
-<pre>
+````
 connect(reply, &QNetworkAccessManager::finished, this,&HttpPerson::onePersonDataSlot);
-</pre>
+````
 Nyt slotissa ei tarvita tuota parametria eli slot voidaan määritellä näin:
-<pre>
+````
 onePersonDataSlot()
-</pre>
+````
 
 ## QtWidgetEsim1
 
@@ -177,25 +177,32 @@ Toiseen suuntaan välittäminen tapahtuu, niin että ennen Page2:n avaamista Mai
 ### Ui:n muotoilus qss-tiedoston avulla
 
 Tiedostossa style.qss on asetettu painikkeille ja labeleille tyylit. Lisäksi on luotu tiedosto resource.qrc, jonka sisältö on:
-<pre>
-&lt;RCC&gt;
-    &lt;qresource prefix="/"&gt;
-        &lt;file&gt;style.qss&lt;/file&gt;
-    &lt;/qresource&gt;
-&lt;/RCC&gt;
-</pre>
+````
+<RCC>
+    <qresource prefix="/">
+        <file>style.qss</file>;
+    </qresource>
+</RCC>
+````
 Tuon tieodoston voi luoda tekstieditorilla tai Qt:n resurssieditorilla.
 
 Lisäksi CMakeLists tiedostoon on lisätty rivit:
-<pre>
+````
 qt_add_resources(RESOURCES_ADDED resource.qrc)
 target_sources(QtWidgetEsim1 PRIVATE ${RESOURCES_ADDED})
-</pre>
+````
 
 Ja main.cpp tiedostoon rivit:
-<pre>
+````
 QFile file(":/style.qss");
 if (file.open(QFile::ReadOnly | QFile::Text)) {
     a.setStyleSheet(file.readAll());
 }
-</pre>
+````
+
+### a.exec()
+
+a.exec() käynnistää Qt-sovelluksen pääasiallisen event loopin.
+Event loop kuuntelee ja käsittelee kaikki käyttöjärjestelmästä tulevat tapahtumat, kuten hiiren klikkaukset, näppäinpainallukset, uudelleenpiirrot ja ajastinsignaalit.
+
+Ohjelma pysyy käynnissä niin kauan kuin event loop on aktiivinen ja päättyy vasta, kun quit() tai exit() kutsutaan tai kaikki ikkunat suljetaan.
