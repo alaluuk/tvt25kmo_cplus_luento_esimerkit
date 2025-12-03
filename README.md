@@ -159,7 +159,8 @@ Huomaa, että connect funktiossa ei tuota argumenttia tarvitse kirjoittaa tuohon
 
 Jos connect funktiossa käytetäänkin replyn finished signaalia seuraavasti 
 ````
-connect(reply, &QNetworkAccessManager::finished, this,&HttpPerson::onePersonDataSlot);
+    reply = manager->get(request);
+    connect(reply, &QNetworkReply::finished, this, &MainWindow::showResponse);
 ````
 Nyt slotissa ei tarvita tuota parametria eli slot voidaan määritellä näin:
 ````
