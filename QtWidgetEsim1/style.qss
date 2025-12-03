@@ -1,8 +1,10 @@
 QPushButton{
-    background-color:lightgreen;
+    background-color:#7385B0;
     min-width:180px;
+    border:2px solid black;
+    border-radius:20px;
 }
 QLabel
 {
-    background-color: red
+    background-color: gray;
 }
