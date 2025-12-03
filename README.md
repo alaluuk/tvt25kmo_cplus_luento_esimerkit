@@ -199,10 +199,3 @@ if (file.open(QFile::ReadOnly | QFile::Text)) {
     a.setStyleSheet(file.readAll());
 }
 ````
-
-### a.exec()
-
-a.exec() käynnistää Qt-sovelluksen pääasiallisen event loopin.
-Event loop kuuntelee ja käsittelee kaikki käyttöjärjestelmästä tulevat tapahtumat, kuten hiiren klikkaukset, näppäinpainallukset, uudelleenpiirrot ja ajastinsignaalit.
-
-Ohjelma pysyy käynnissä niin kauan kuin event loop on aktiivinen ja päättyy vasta, kun quit() tai exit() kutsutaan tai kaikki ikkunat suljetaan.
