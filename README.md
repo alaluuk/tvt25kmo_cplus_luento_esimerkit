@@ -200,3 +200,18 @@ if (file.open(QFile::ReadOnly | QFile::Text)) {
     a.setStyleSheet(file.readAll());
 }
 ````
+
+## Widget_Esim2 ja Widget_Esim2_v2
+
+Molemmissa esimerkeissä on Person luokka luotu Singleton-luokkana.
+
+**Widget_Esim2**:ssa on hyvä huomata kuinka luodaan raakapointterilla olio, johon päästään käsiksi luokan jokaisesta metodista ja kuinka varmistetaan, että tuollainen olio tuhotaan. Tämä saadaan aikaan näin:
+- Olio esitellään h-tiedoston private osassa
+- Olio luodaan konstruktorissa
+- Olio tuhotaan destruktorissa
+
+**Widget_Esim2_v2**:ssa on tähän tilanteeseen paremmin sopiva Singleton malli, jossa Person oliot luodaan pinoon. Nyt tuon olion tuhoamisesta ei tarvitse huolehtia. Ja tällaiset pienet oliot suositellaan luotavaksi pinoon. Kun tätä sovellusta suoritetaan, niin voi olla ettei koskaan edes luoda tuota oliota. Voihan olla niin, että käyttäjä ei painelisi niitä painikkeita, joissa tuo olio luodaan.
+
+### Sovelluksen UML kaavio
+
+![UML diagrammi](singleton_esim.png)
