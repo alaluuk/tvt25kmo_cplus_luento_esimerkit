@@ -36,7 +36,7 @@ void HttpPerson::personDataSlot(QNetworkReply *reply)
     }
 
     reply->deleteLater();
-    manager->deleteLater();
+    //manager->deleteLater() poistettu turhana;
 }
 
 void HttpPerson::getOnePersonData()
@@ -60,5 +60,5 @@ void HttpPerson::onePersonDataSlot(QNetworkReply *reply)
     qDebug()<<json_obj["firstname"].toString()<<" "<<json_obj["lastname"].toString();
 
     reply->deleteLater();
-    manager->deleteLater();
+    //manager->deleteLater() poistettu turhana;
 }

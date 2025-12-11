@@ -37,7 +37,7 @@ void MainWindow::showPersonSlot()
     if (reply->error() != QNetworkReply::NoError) {
         qWarning() << "Network error:" << reply->errorString();
         reply->deleteLater();
-        manager->deleteLater();
+        //manager->deleteLater() poistettu turhana;
         return;
     }
 
@@ -60,7 +60,7 @@ void MainWindow::showPersonSlot()
     //personsToListSlot();
     ui->btnShowPersons->setEnabled(true);
     reply->deleteLater();
-    manager->deleteLater();
+    //manager->deleteLater() poistettu turhana;
 }
 
 void MainWindow::personsToListSlot()

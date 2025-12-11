@@ -49,5 +49,5 @@ void MainWindow::showResponse()
     ui->labelResult->setText("Lukujen summa="+resultToUi);
 
     reply->deleteLater();
-    manager->deleteLater();
+    //manager->deleteLater() poistettu turhana;
 }

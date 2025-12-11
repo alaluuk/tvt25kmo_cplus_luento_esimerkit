@@ -215,3 +215,8 @@ Molemmissa esimerkeissä on Person luokka luotu Singleton-luokkana.
 ### Sovelluksen UML kaavio
 
 ![UML diagrammi](singleton_esim.png)
+
+
+## QtWidgetit, joissa HTTP
+
+Poistin kaikista esimerkeistä rivin manager->deleteLater(), koska se on turha. Tuo oliohan luodaan koodilla manager = new QNetworkAccessManager(this);
